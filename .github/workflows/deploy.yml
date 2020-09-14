@@ -31,4 +31,4 @@ jobs:
         run: ssh -oStrictHostKeyChecking=no $SSH_ADDR -i key "sh ${PROJECT_ROOT}python/cmds/deploy.sh"
         env:
           SSH_ADDR: ${{ secrets.SSH_ADDR }}
-          PROJECT_ROOT: ${{ secret.PROJECT_ROOT }}
+          PROJECT_ROOT: ${{ secrets.PROJECT_ROOT }}
