@@ -1,6 +1,6 @@
 #!/bin/sh
 
-docekr-compose down
+docker-compose down
 
 git pull
 
