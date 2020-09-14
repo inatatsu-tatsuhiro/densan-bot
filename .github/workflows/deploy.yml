@@ -28,6 +28,7 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Deploy
-        run: ssh -oStrictHostKeyChecking=no $SSH_ADDR -i key "sh ./cmds/deploy.sh"
+        run: ssh -oStrictHostKeyChecking=no $SSH_ADDR -i key "sh ${PROJECT_ROOT}python/cmds/deploy.sh"
         env:
           SSH_ADDR: ${{ secrets.SSH_ADDR }}
+          PROJECT_ROOT: ${{ secret.PROJECT_ROOT }}
