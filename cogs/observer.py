@@ -53,7 +53,7 @@ class Observer(commands.Cog):
             await self.nortificate(msg)
 
     async def nortificate(self, msg):
-        os.system(f'curl -XPOST -d "token={os.environ["SLACK_TOKEN"]}" -d "channel=#{os.environ["SLACK_CHANNEL"]}" -d "text={msg}" "https://slack.com/api/chat.postMessage"')
+        os.system(f'curl -XPOST -d "token={os.environ["SLACK_TOKEN_DEV"]}" -d "channel=#{os.environ["SLACK_CHANNEL_DEV"]}" -d "text={msg}" "https://slack.com/api/chat.postMessage"')
     
 def setup(bot):
     bot.add_cog(Observer(bot))
