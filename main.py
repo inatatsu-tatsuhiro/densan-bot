@@ -17,6 +17,7 @@ async def on_ready():
     print('-----')
     print('ready')
     print('-----')
+    os.system(f'curl -XPOST -d "token={os.environ["SLACK_TOKEN"]}" -d "channel=#{os.environ["SLACK_CHANNEL"]}" -d "text=densan botが起動しました。" "https://slack.com/api/chat.postMessage"')
 
 for extension in EXTENSIONS:
     bot.load_extension(extension)
