@@ -23,7 +23,7 @@ class Enchant(commands.Cog):
     async def create_role(self, ctx, role_name):
         role = await ctx.guild.create_role(name=role_name)
         if not role == None:
-            await ctx.send(role.mention)
+            await ctx.send(f'{role.mention}を作成しました。')
 
 
     
