@@ -50,7 +50,7 @@ class Shuffle(commands.Cog):
         i = 0
         for mem in self.bot.members:
             await mem.move_to(channel=self.bot.rooms[i])
-            if len(self.bot.rooms) <= i:
+            if len(self.bot.rooms) < i:
                 i = 0
             else:
                 i += 1
