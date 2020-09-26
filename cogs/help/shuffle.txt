@@ -1,5 +1,5 @@
 - shuffle_help
-shuffleに関するヘルプを表示する。略記 sh
+shuffleに関するヘルプを表示する。
 ex)
 ```
 //shuffle_help

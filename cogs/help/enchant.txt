@@ -1,5 +1,5 @@
 - enchant_help
-enchantに関するヘルプを表示する。略記 eh
+enchantに関するヘルプを表示する。
 ex)
 ```
 //enchant_help
