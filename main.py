@@ -3,7 +3,7 @@ import os
 import traceback # エラー表示のためにインポート
 from cogs.observer import Observer
 
-bot = commands.Bot(command_prefix='!!')
+bot = commands.Bot(command_prefix='/')
 bot.observe_channels = set()
 bot.members = []
 bot.rooms = []
