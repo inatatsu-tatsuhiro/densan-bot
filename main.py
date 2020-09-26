@@ -5,8 +5,11 @@ from cogs.observer import Observer
 
 bot = commands.Bot(command_prefix='!!')
 bot.observe_channels = set()
+bot.members = []
+bot.rooms = []
 EXTENSIONS = [
-    'cogs.observer'
+    'cogs.observer',
+    'cogs.shuffle'
 ]
 
 @bot.event
