@@ -21,7 +21,7 @@ async def on_ready():
     # os.system(f'curl -XPOST -d "token={os.environ["SLACK_TOKEN"]}" -d "channel=#{os.environ["SLACK_CHANNEL"]}" -d "text=densan botが起動しました。" "https://slack.com/api/chat.postMessage"')
     guild = bot.get_guild(int(os.environ["GUILD_ID"]))
 
-     ch1 = guild.get_channel(753978604051890207)
+    ch1 = guild.get_channel(753978604051890207)
     bot.observe_channels.add(ch1)
     ch2 = guild.get_channel(753978640806445107)
     bot.observe_channels.add(ch2)
