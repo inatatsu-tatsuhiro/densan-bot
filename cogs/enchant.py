@@ -2,6 +2,7 @@ from discord.ext import commands, tasks
 
 import discord
 import re
+import os
 
 class Enchant(commands.Cog):
     def __init__(self, bot):
@@ -27,10 +28,14 @@ class Enchant(commands.Cog):
 
 
     
-    @commands.Cog.listener(name='on_reaction_add')
-    async def on_reaction_add(self, reaction, user):
-        if reaction.message.content.startswith('*'):
-            await user.add_roles(reaction.message.role_mentions[0])
+    @commands.Cog.listener(name='on_raw_reaction_add')
+    async def on_raw_reaction_add(self, payload):
+        ch = self.bot.get_channel(payload.channel_id)
+        msg = await ch.fetch_message(payload.message_id)
+        mem = payload.member
+        
+        if msg.content.startswith('*') and msg.author.bot:
+            await mem.add_roles(msg.role_mentions[0])
 
 def setup(bot):
     bot.add_cog(Enchant(bot))
