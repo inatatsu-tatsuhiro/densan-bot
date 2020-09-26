@@ -29,7 +29,7 @@ class Enchant(commands.Cog):
     
     @commands.Cog.listener(name='on_reaction_add')
     async def on_reaction_add(self, reaction, user):
-        if reaction.message.content.startswith('*') and reaction.message.author.bot:
+        if reaction.message.content.startswith('*'):
             await user.add_roles(reaction.message.role_mentions[0])
 
 def setup(bot):
