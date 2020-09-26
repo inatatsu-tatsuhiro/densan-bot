@@ -58,14 +58,6 @@ class Shuffle(commands.Cog):
         self.time_keep.start(ctx)
         await ctx.send('ルーム分け完了しました。ルームの時間は'+str(self.bot.timer // 60)+'分です。')
 
-    @commands.command()
-    async def test(self, ctx):
-        self.bot.start_time = int(time.time())
-        self.bot.flag = True
-        self.time_keep.start(ctx)
-        await ctx.send('time_keep start' + str(self.bot.start_time))
-
-
     
     
 def setup(bot):
