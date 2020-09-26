@@ -17,7 +17,7 @@ class Shuffle(commands.Cog):
                 await vc.edit(category=ch)
                 self.bot.rooms.append(vc)
         else:
-            await ctx.send('そんなカテゴリねーよ')
+            await ctx.send('カテゴリが見つかりません。')
 
     @commands.command()
     async def timer(self, ctx, m):
