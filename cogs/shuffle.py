@@ -9,7 +9,7 @@ class Shuffle(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def create(self, ctx, category_id, num):
+    async def create_room(self, ctx, category_id, num):
         ch = ctx.guild.get_channel(int(category_id))
         if ch in ctx.guild.categories:
             for i in range(int(num)):
@@ -20,7 +20,7 @@ class Shuffle(commands.Cog):
             await ctx.send('カテゴリが見つかりません。')
 
     @commands.command()
-    async def timer(self, ctx, m):
+    async def room_timer(self, ctx, m):
         self.bot.timer = int(m)*60
         await ctx.send('タイマーを'+m+'分でセットしました。')
 

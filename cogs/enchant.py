@@ -8,7 +8,7 @@ class Enchant(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def enchant(self, ctx, role_mention):
+    async def enchant_role(self, ctx, role_mention):
         flag = False
         for r in ctx.guild.roles:
             if r.mention == role_mention:
