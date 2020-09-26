@@ -7,8 +7,19 @@ import os
 class Enchant(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+    
+    @commands.command(aliases=['eh'])
+    async def enchant_help(self, ctx):
+        f = open('./cogs/help/enchant.txt')
+        lines = f.readlines()
+        f.close()
+        discription = ""
+        for l in lines:
+            discription += l
+        em = discord.Embed(title="Enchant Help", description=discription, colour=self.bot.color)
+        await ctx.send(embed=em)
 
-    @commands.command()
+    @commands.command(aliases=['er'])
     async def enchant_role(self, ctx, role_mention):
         flag = False
         for r in ctx.guild.roles:
@@ -20,7 +31,7 @@ class Enchant(commands.Cog):
         else:
             await ctx.send('404')
 
-    @commands.command()
+    @commands.command(aliases=['crl'])
     async def create_role(self, ctx, role_name):
         role = await ctx.guild.create_role(name=role_name)
         if not role == None:

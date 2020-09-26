@@ -1,0 +1,22 @@
+- enchant_help
+enchantに関するヘルプを表示する。略記 eh
+ex)
+```
+//enchant_help
+//eh
+```
+- enchant_role <Role>
+指定したロールを付与するメッセージを返す
+ex)
+```
+//enchant_role @hoge
+//er @hoge
+```
+
+- create_role <str>
+指定した名前のロールを作成する
+ex)
+```
+//create_role hoge
+//crl hoge
+```

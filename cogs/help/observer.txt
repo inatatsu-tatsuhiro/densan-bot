@@ -1,0 +1,29 @@
+- observer_help
+observertに関するヘルプを表示する。
+ex)
+```
+//observer_help
+//oh
+```
+- add_ch <str>
+指定したチャンネルIDを持つVCを通知の監視対象に追加する
+ex)
+```
+//add_ch 753978640806445107
+//ac 753978604051890207
+```
+- remove_ch <str>
+指定したチャンネルIDを持つVCを通知の監視対象から削除する
+ex)
+```
+//remove_ch 753978640806445107
+//rc 753978604051890207
+```
+
+- show_list
+Slackへ通知対象となるVCの一覧を表示する
+ex)
+```
+//show_list
+//sl
+```

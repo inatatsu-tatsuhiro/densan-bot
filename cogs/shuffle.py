@@ -8,7 +8,19 @@ class Shuffle(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command()
+    @commands.command(aliases=['sh'])
+    async def shuffle_help(self, ctx):
+        f = open('./cogs/help/shuffle.txt')
+        lines = f.readlines()
+        f.close()
+        discription = ""
+        for l in lines:
+            discription += l
+        em = discord.Embed(title="Shuffle Help", description=discription, colour=self.bot.color)
+        await ctx.send(embed=em)
+
+
+    @commands.command(aliases=['crm'])
     async def create_room(self, ctx, category_id, num):
         ch = ctx.guild.get_channel(int(category_id))
         if ch in ctx.guild.categories:
@@ -19,7 +31,7 @@ class Shuffle(commands.Cog):
         else:
             await ctx.send('カテゴリが見つかりません。')
 
-    @commands.command()
+    @commands.command(aliases=['rt'])
     async def room_timer(self, ctx, m):
         self.bot.timer = int(m)*60
         await ctx.send('タイマーを'+m+'分でセットしました。')
@@ -40,9 +52,7 @@ class Shuffle(commands.Cog):
             await ctx.send('残り'+str((remain // 60)+1)+'分' )
 
 
-
-
-    @commands.command()
+    @commands.command(aliases=['s'])
     async def shuffle(self, ctx):
         self.bot.members = [mem for mem in ctx.author.voice.channel.members if not ctx.author == mem]
         random.shuffle(self.bot.members)

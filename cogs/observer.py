@@ -7,8 +7,19 @@ class Observer(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command()
-    async def add(self, ctx, channel_id: str):
+    @commands.command(aliases=['oh'])
+    async def observer_help(self, ctx):
+        f = open('./cogs/help/observer.txt')
+        lines = f.readlines()
+        f.close()
+        discription = ""
+        for l in lines:
+            discription += l
+        em = discord.Embed(title="Observer Help", description=discription, colour=self.bot.color)
+        await ctx.send(embed=em)
+
+    @commands.command(aliases=['ac'])
+    async def add_ch(self, ctx, channel_id: str):
         flag = False
         ch = ctx.guild.get_channel(int(channel_id))
         if ch in ctx.bot.observe_channels:
@@ -25,16 +36,16 @@ class Observer(commands.Cog):
         else:
             await ctx.send(channel_id + 'に該当するVoice Channelはありません。')
 
-    @commands.command()
-    async def list(self, ctx):
+    @commands.command(aliases=['sl'])
+    async def show_list(self, ctx):
         msg = "========部室(VC)一覧========\n"
         for ch in ctx.bot.observe_channels:
             msg += (ch.name + "\n")
         msg += "=========================="
         await ctx.send(msg)
     
-    @commands.command()
-    async def remove(self, ctx, channel_id: str):
+    @commands.command(aliases=['rc'])
+    async def remove_ch(self, ctx, channel_id: str):
         ch = ctx.guild.get_channel(int(channel_id))
         if ch in ctx.bot.observe_channels:
             ctx.bot.observe_channels.remove(ch)
