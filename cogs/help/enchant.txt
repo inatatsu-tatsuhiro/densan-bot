@@ -20,3 +20,11 @@ ex)
 //create_role hoge
 //crl hoge
 ```
+
+- release_role <str>
+指定した名前のロールを解除する
+ex)
+```
+//release_role hoge
+//rr hoge
+```

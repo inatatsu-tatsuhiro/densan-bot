@@ -21,7 +21,7 @@ class Enchant(commands.Cog):
 
     @commands.command(aliases=['er'])
     async def enchant_role(self, ctx, role_mention):
-        flag = False
+        flag = False        
         for r in ctx.guild.roles:
             if r.mention == role_mention:
                 flag = True
@@ -36,6 +36,25 @@ class Enchant(commands.Cog):
         role = await ctx.guild.create_role(name=role_name)
         if not role == None:
             await ctx.send(f'{role.mention}を作成しました。')
+
+    @commands.command(aliases=['rr'])
+    async def release_role(self, ctx, role_name):
+        flag = False
+        r = None
+        if role_name.startswith('<@&'):
+            r_name = ctx.guild.get_role(int(role_name[3:-1])).name
+        else:
+            r_name = role_name
+        for role in ctx.guild.roles:
+            if r_name == role.name:
+                flag = True
+                r = role
+
+        if flag:
+            await ctx.author.remove_roles(r)
+            await ctx.send(f'ロール:{r_name}を解除しました。')
+        else:
+            await ctx.send(f'ロール{r_name}は見つかりません。')
 
 
     
