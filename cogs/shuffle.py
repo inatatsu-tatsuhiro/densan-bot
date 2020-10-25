@@ -59,6 +59,9 @@ class Shuffle(commands.Cog):
     @commands.command()
     async def test(self, ctx):
         await ctx.author.edit(mute=True)
+    @commands.command()
+    async def test2(self, ctx):
+        await ctx.author.edit(mute=False)
     
     @commands.command(aliases=['s'])
     async def shuffle(self, ctx):
