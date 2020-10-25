@@ -25,9 +25,12 @@ class Shuffle(commands.Cog):
         ch = ctx.guild.get_channel(int(category_id))
         if ch in ctx.guild.categories:
             for i in range(int(num)):
+                tc = await ctx.guild.create_text_channel('room'+str(i+1))
                 vc = await ctx.guild.create_voice_channel('room'+str(i+1))
                 await vc.edit(category=ch)
+                await tc.edit(category=ch)
                 self.bot.rooms.append(vc)
+                self.bot.rooms.append(tc)
         else:
             await ctx.send('カテゴリが見つかりません。')
 
@@ -43,6 +46,7 @@ class Shuffle(commands.Cog):
             await ctx.send('終了です。')
             for mem in self.bot.members:
                 await mem.move_to(channel=self.bot.here)
+                await mem.edit(mute=True)
             for room in self.bot.rooms:
                 await room.delete()
             self.bot.rooms.clear()
@@ -52,6 +56,10 @@ class Shuffle(commands.Cog):
             await ctx.send('残り'+str((remain // 60)+1)+'分' )
 
 
+    @commands.command()
+    async def test(self, ctx):
+        await ctx.author.edit(mute=True)
+    
     @commands.command(aliases=['s'])
     async def shuffle(self, ctx):
         self.bot.members = [mem for mem in ctx.author.voice.channel.members if not ctx.author == mem]
