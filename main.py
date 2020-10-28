@@ -11,16 +11,18 @@ bot.color = 0x9E7A7A
 EXTENSIONS = [
     'cogs.observer',
     'cogs.shuffle',
-    'cogs.enchant'
+    'cogs.enchant',
+    'cogs.pin'
 ]
 
 @bot.event
 async def on_ready():
-    print('-----')
-    print('ready')
-    print('-----')
-    # os.system(f'curl -XPOST -d "token={os.environ["SLACK_TOKEN"]}" -d "channel=#{os.environ["SLACK_CHANNEL"]}" -d "text=densan botが起動しました。" "https://slack.com/api/chat.postMessage"')
     guild = bot.get_guild(int(os.environ["GUILD_ID"]))
+    print('-------------------')
+    print('ready:' + guild.name)
+    print('-------------------')
+    # os.system(f'curl -XPOST -d "token={os.environ["SLACK_TOKEN"]}" -d "channel=#{os.environ["SLACK_CHANNEL"]}" -d "text=densan botが起動しました。" "https://slack.com/api/chat.postMessage"')
+
 
     ch1 = guild.get_channel(753978604051890207)
     bot.observe_channels.add(ch1)
