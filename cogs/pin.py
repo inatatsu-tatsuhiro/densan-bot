@@ -32,6 +32,7 @@ class Pin(commands.Cog):
         if not(payload.emoji.name == '📌'):
             print('failed')
             return
+        print('succses')
         ch = self.bot.get_channel(payload.channel_id)
         msg = await ch.fetch_message(payload.message_id)
         pins = await ch.pins()
