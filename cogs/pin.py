@@ -19,7 +19,7 @@ class Pin(commands.Cog):
 
     @commands.Cog.listener(name='on_raw_reaction_add')
     async def on_raw_reaction_add(self, payload):
-        print('add:' + payload.emoji)
+        print(payload.emoji)
         if not(payload.emoji.name == '📌'):
             return
         ch = self.bot.get_channel(payload.channel_id)
@@ -27,7 +27,7 @@ class Pin(commands.Cog):
         await msg.pin()
     @commands.Cog.listener(name='on_raw_reaction_remove')
     async def on_raw_reaction_remove(self, payload):
-        print('delete: ' + payload.emoji)
+        print(payload.emoji)
         if not(payload.emoji.name == '📌'):
             return
         ch = self.bot.get_channel(payload.channel_id)
