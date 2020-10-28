@@ -21,6 +21,7 @@ class Pin(commands.Cog):
     async def on_raw_reaction_add(self, payload):
         print(payload.emoji)
         if not(payload.emoji.name == '📌'):
+            print('failed')
             return
         ch = self.bot.get_channel(payload.channel_id)
         msg = await ch.fetch_message(payload.message_id)
@@ -29,6 +30,7 @@ class Pin(commands.Cog):
     async def on_raw_reaction_remove(self, payload):
         print(payload.emoji)
         if not(payload.emoji.name == '📌'):
+            print('failed')
             return
         ch = self.bot.get_channel(payload.channel_id)
         msg = await ch.fetch_message(payload.message_id)
