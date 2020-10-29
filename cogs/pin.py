@@ -35,9 +35,9 @@ class Pin(commands.Cog):
         print('succses')
         ch = self.bot.get_channel(payload.channel_id)
         msg = await ch.fetch_message(payload.message_id)
-        pins = await ch.pins()
-        if not(msg in pins):
-            return
+        # pins = await ch.pins()
+        # if not(msg in pins):
+        #     return
 
         await msg.unpin()
         await ch.send('ピンを外しました')
